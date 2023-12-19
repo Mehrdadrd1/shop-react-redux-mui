@@ -17,3 +17,5 @@ const theme = createTheme({
     fontFamily: {},
   },
 });
+
+export default theme;

@@ -1,14 +1,18 @@
-import React from "react";
 import { Box } from "@mui/material";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import useStyles from "./layout.style";
 
 const Layout = ({ children }) => {
+  const { classes } = useStyles();
+
   return (
-    <Box>
+    <Box className={classes.layout}>
       <Header />
-      <Box>{children}</Box>
-      <Footer />
+      <Box className={classes.main}>{children}</Box>
+      <Box className={classes.layoutFooter}>
+        <Footer />
+      </Box>
     </Box>
   );
 };

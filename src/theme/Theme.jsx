@@ -3,18 +3,29 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      light: "#f8f0fb",
-      main: "#e8c547",
-      dark: "#8075ff",
+      light: "#faed3c",
+      main: "#ffdb00",
+      dark: "#ffa800",
     },
     secondary: {
-      light: "#4d5061",
-      main: "#6320ee",
-      dark: "#30323d",
+      light: "#9497cd",
+      main: "#2d339e",
+      dark: "#15187e",
     },
   },
   typography: {
-    fontFamily: {},
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
   },
 });
 

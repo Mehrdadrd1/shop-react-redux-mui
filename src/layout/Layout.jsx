@@ -1,18 +1,22 @@
-import { Box } from "@mui/material";
-import Header from "../components/header/Header";
+import { Box, Grid } from "@mui/material";
 import Footer from "../components/footer/Footer";
 import useStyles from "./layout.style";
+import Header from "../components/header/Header";
+import SideBar from "../components/sideBar/SideBar";
 
 const Layout = ({ children }) => {
   const { classes } = useStyles();
 
   return (
-    <Box className={classes.layout}>
+    <Box className={classes.root}>
       <Header />
-      <Box className={classes.main}>{children}</Box>
-      <Box className={classes.layoutFooter}>
-        <Footer />
+      <Box className={classes.middle}>
+        <Box className={classes.sideBar}>
+          <SideBar />
+        </Box>
+        <Box className={classes.content}>{children}</Box>
       </Box>
+      <Footer />
     </Box>
   );
 };

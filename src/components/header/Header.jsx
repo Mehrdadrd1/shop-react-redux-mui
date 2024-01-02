@@ -1,14 +1,13 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
 import useStyles from "./header.style";
+import { Box, Typography } from "@mui/material";
 
 const Header = () => {
   const { classes } = useStyles();
 
   return (
-    <Box>
-      <Typography className={classes.hiro}>Header</Typography>
-      <Box className={classes.nav}>NavBar</Box>
+    <Box className={classes.root}>
+      <Typography className={classes.header}>Header</Typography>
     </Box>
   );
 };

@@ -5,12 +5,16 @@ const theme = createTheme({
     primary: {
       light: "#faed3c",
       main: "#ffdb00",
-      dark: "#ffa800",
     },
     secondary: {
-      light: "#9497cd",
-      main: "#2d339e",
-      dark: "#15187e",
+      light: "#f0e6ff",
+      main: "#15187e",
+    },
+    error: {
+      main: "#ed002b",
+    },
+    success: {
+      main: "#00be00",
     },
   },
   typography: {
@@ -26,6 +30,7 @@ const theme = createTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(","),
+    fontSize: 20,
   },
 });
 

@@ -9,23 +9,11 @@ const useStyles = makeStyles()((theme) => {
       alignItems: "center",
       backgroundColor: theme.palette.paper.main,
       color: theme.palette.primary.dark,
-      maxWidth: "100%",
+      minWidth: "72vw",
+      maxWidth: "86vw",
       minHeight: "75vh",
       padding: "5px",
-      marginRight: "5px",
       borderRadius: "15px",
-    },
-    list: {
-      backgroundColor: theme.palette.paper.main,
-      width: "100%",
-    },
-    link: {
-      color: theme.palette.text.main,
-      listStyle: "none",
-      textDecoration: "none",
-    },
-    icon: {
-      color: theme.palette.text.main,
     },
   };
 });

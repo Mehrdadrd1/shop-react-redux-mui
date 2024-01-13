@@ -2,19 +2,23 @@ import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
+    paper: {
+      main: "#dedede",
+    },
     primary: {
-      light: "#faed3c",
-      main: "#ffdb00",
+      main: "#bce1a7",
     },
     secondary: {
-      light: "#f0e6ff",
-      main: "#15187e",
+      main: "#e1ccca",
     },
     error: {
       main: "#ed002b",
     },
     success: {
       main: "#00be00",
+    },
+    text: {
+      main: "#3c3c3c",
     },
   },
   typography: {

@@ -4,13 +4,14 @@ const useStyles = makeStyles()((theme) => {
   return {
     root: {
       maxWidth: "100%",
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: theme.palette.paper.light,
+      color: theme.palette.primary.light,
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
       height: "100vh",
-      padding: "5px 10px",
+      padding: "10px",
     },
     middle: {
       flex: 1,
@@ -18,6 +19,7 @@ const useStyles = makeStyles()((theme) => {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
+      justifyContent: "space-around",
     },
   };
 });

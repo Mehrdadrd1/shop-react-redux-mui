@@ -15,6 +15,14 @@ const useStyles = makeStyles()((theme) => {
       padding: "5px",
       borderRadius: "15px",
     },
+    products: {
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+    },
   };
 });
 

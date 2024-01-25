@@ -8,7 +8,7 @@ const useStyles = makeStyles()((theme) => {
       color: theme.palette.primary.light,
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      justifyContent: "space-between",
       alignItems: "center",
       height: "100vh",
       padding: "10px",
@@ -17,9 +17,9 @@ const useStyles = makeStyles()((theme) => {
       flex: 1,
       maxWidth: "100%",
       display: "flex",
-      flexDirection: "row",
+      justifyContent: "center",
       alignItems: "center",
-      justifyContent: "space-around",
+      paddingTop: "50px",
     },
   };
 });

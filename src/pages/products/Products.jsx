@@ -9,10 +9,7 @@ const Products = () => {
   return (
     <Layout>
       <Box className={classes.root} sx={{ boxShadow: 5 }}>
-        Products
-        <Box className={classes.products}>
-          <GetProducts />
-        </Box>
+        <GetProducts />
       </Box>
     </Layout>
   );

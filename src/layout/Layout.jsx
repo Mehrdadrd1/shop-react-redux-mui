@@ -1,8 +1,7 @@
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import Footer from "../components/footer/Footer";
 import useStyles from "./layout.style";
 import Header from "../components/header/Header";
-import SideBar from "../components/sideBar/SideBar";
 
 const Layout = ({ children }) => {
   const { classes } = useStyles();
@@ -10,14 +9,7 @@ const Layout = ({ children }) => {
   return (
     <Box className={classes.root}>
       <Header />
-      <Grid container spacing={0} className={classes.middle}>
-        <Grid item xs="auto">
-          <SideBar />
-        </Grid>
-        <Grid item xs="auto">
-          {children}
-        </Grid>
-      </Grid>
+      <Box className={classes.middle}>{children}</Box>
       <Footer />
     </Box>
   );

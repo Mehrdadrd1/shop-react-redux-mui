@@ -9,10 +9,18 @@ const useStyles = makeStyles()((theme) => {
     },
     success: {
       maxWidth: "100%",
-      backgroundColor: theme.palette.primary.light,
-      color: theme.palette.text.main,
-      padding: "15px",
-      borderRadius: "15px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      flexWrap: "wrap",
+    },
+    successProducts: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      flexWrap: "wrap",
     },
   };
 });

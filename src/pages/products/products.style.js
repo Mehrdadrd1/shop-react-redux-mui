@@ -4,7 +4,7 @@ const useStyles = makeStyles()((theme) => {
   return {
     root: {
       display: "flex",
-      flexDirection: "column",
+      flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: theme.palette.paper.main,
@@ -14,14 +14,6 @@ const useStyles = makeStyles()((theme) => {
       minHeight: "75vh",
       padding: "5px",
       borderRadius: "15px",
-    },
-    products: {
-      display: "flex",
-      flexDirection: "row",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
     },
   };
 });

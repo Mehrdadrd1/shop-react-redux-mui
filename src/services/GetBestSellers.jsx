@@ -3,16 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSvg from "../assets/svgs/LoadingSvg";
 import { Box, Typography } from "@mui/material";
 import useStyles from "./service.style";
-import ProductCard from "../components/productCard/ProductCard";
-import Pagination from "../components/pagination/Pagination";
+import BestSellersView from "../components/bestSellersView/BestSellersView";
 
 const getData = async () => {
   const response = await axios.get("https://fakestoreapi.com/products");
-  // use this in the end of url to limit api items => "?limit=5"
   return response.data;
 };
 
-const GetProducts = () => {
+const GetBestProducts = () => {
   const { classes } = useStyles();
   const { isPending, error, data } = useQuery({
     queryKey: ["productsData"],
@@ -29,20 +27,22 @@ const GetProducts = () => {
 
   if (isPending) return <LoadingSvg className={classes.pending}></LoadingSvg>;
 
-  return (
-    <Box className={classes.success}>
-      <Box className={classes.successProducts}>
-        {data.map((product) => (
-          <Box key={product.id}>
-            <ProductCard data={product} />
-          </Box>
-        ))}
+  if (data) {
+    let bestOnes = [];
+    let myIndices = [6, 8, 16];
+    myIndices.forEach((i) => bestOnes.push(data[i]));
+    return (
+      <Box className={classes.success}>
+        <Box className={classes.successProducts}>
+          {bestOnes.map((product) => (
+            <Box key={product.id}>
+              <BestSellersView data={product} />
+            </Box>
+          ))}
+        </Box>
       </Box>
-      <Box>
-        <Pagination />
-      </Box>
-    </Box>
-  );
+    );
+  }
 };
 
-export default GetProducts;
+export default GetBestProducts;

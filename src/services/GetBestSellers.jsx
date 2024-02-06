@@ -17,6 +17,14 @@ const GetBestProducts = () => {
     queryFn: getData,
   });
 
+  const selectedOnes = () => {
+    let bestOnes = [];
+    let myIndices = [6, 8, 16];
+    data.filter();
+    //myIndices.forEach((i) => bestOnes.push(data[i]));
+    return bestOnes;
+  };
+
   if (error) {
     return (
       <Typography variant="body2" className={classes.error}>
@@ -28,17 +36,17 @@ const GetBestProducts = () => {
   if (isPending) return <LoadingSvg className={classes.pending}></LoadingSvg>;
 
   if (data) {
-    let bestOnes = [];
-    let myIndices = [6, 8, 16];
-    myIndices.forEach((i) => bestOnes.push(data[i]));
+    // let bestOnes = selectedOnes();
     return (
       <Box className={classes.success}>
         <Box className={classes.successProducts}>
-          {bestOnes.map((product) => (
-            <Box key={product.id}>
-              <BestSellersView data={product} />
-            </Box>
-          ))}
+          {data
+            .filter((id) => id.includes("6", "8", "16"))
+            .map((product) => (
+              <Box key={product.id}>
+                <BestSellersView data={product} />
+              </Box>
+            ))}
         </Box>
       </Box>
     );

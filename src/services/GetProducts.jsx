@@ -5,15 +5,18 @@ import { Box, Typography } from "@mui/material";
 import useStyles from "./service.style";
 import ProductCard from "../components/productCard/ProductCard";
 import Pagination from "../components/pagination/Pagination";
+import { useState } from "react";
 
 const getData = async () => {
-  const response = await axios.get("https://fakestoreapi.com/products");
+  const response = await axios.get("https://fakestoreapi.com/products?limit=4");
   // use this in the end of url to limit api items => "?limit=5"
   return response.data;
 };
 
 const GetProducts = () => {
   const { classes } = useStyles();
+  const pageSize = 4;
+  const [page, setPage] = useState(1);
   const { isPending, error, data } = useQuery({
     queryKey: ["productsData"],
     queryFn: getData,
@@ -39,7 +42,7 @@ const GetProducts = () => {
         ))}
       </Box>
       <Box>
-        <Pagination />
+        <Pagination count={4} onChange={(e, value) => setPage(value)} />
       </Box>
     </Box>
   );

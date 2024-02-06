@@ -1,32 +1,59 @@
-import { Box, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActionArea,
+  CardActions,
+} from "@mui/material";
 import React from "react";
-import useStyles from "./productsCard.style";
+import useStyles from "../productCard/productsCard.style";
 
 const ProductCard = (props) => {
   const { classes } = useStyles();
   const product = props.data;
   return (
-    <Box className={classes.mainCard}>
-      <Box
-        component="img"
-        alt="productImageThe house from the offer."
-        src={product.image}
-        className={classes.image}
-      />
-      <Typography variant="body1" color="initial" className={classes.title}>
-        {product.title}
-      </Typography>
-      <Typography
-        variant="h6"
-        color="initial"
-        sx={{ alignSelf: "flex-start", justifySelf: "flex-end" }}
-      >
-        Price: {product.price}$
-      </Typography>
-      <Button variant="contained" color="secondary">
-        Add
-      </Button>
-    </Box>
+    <Card className={classes.mainCard}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          src={product.image}
+          alt={product.title}
+          className={classes.image}
+        />
+        <CardContent sx={{ height: "130px" }}>
+          <Typography
+            variant="h6"
+            color="initial"
+            align="center"
+            sx={{ height: "80px" }}
+          >
+            {product.title}
+          </Typography>
+          <Typography
+            variant="body1"
+            color="Highlight"
+            align="center"
+            fontWeight="bold"
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+            }}
+          >
+            <Box sx={{ marginRight: "5px" }}>Price:</Box>
+            <Box>${product.price}</Box>
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions className={classes.btnArea}>
+        <Button variant="contained" color="secondary">
+          Add To Card
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 

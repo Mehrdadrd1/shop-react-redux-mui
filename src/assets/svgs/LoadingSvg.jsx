@@ -8,7 +8,7 @@ const LoadingSvg = () => {
         <rect
           fill="#BCE1A7"
           stroke="#BCE1A7"
-          strokeWidth="15"
+          strokeWidth="200"
           strokeLinejoin="round"
           width="30"
           height="30"

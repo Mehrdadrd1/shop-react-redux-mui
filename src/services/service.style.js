@@ -22,6 +22,9 @@ const useStyles = makeStyles()((theme) => {
       alignItems: "center",
       flexWrap: "wrap",
     },
+    pending: {
+      color: theme.palette.text.primary,
+    },
   };
 });
 

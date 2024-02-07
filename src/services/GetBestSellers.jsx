@@ -13,17 +13,28 @@ const getData = async () => {
 const GetBestProducts = () => {
   const { classes } = useStyles();
   const { isPending, error, data } = useQuery({
-    queryKey: ["productsData"],
+    queryKey: ["data"],
     queryFn: getData,
   });
 
-  const selectedOnes = () => {
-    let bestOnes = [];
-    let myIndices = [6, 8, 16];
-    data.filter();
-    //myIndices.forEach((i) => bestOnes.push(data[i]));
-    return bestOnes;
-  };
+  if (data) {
+    let products = [];
+    products.push(data[6]);
+    products.push(data[10]);
+    products.push(data[12]);
+
+    return (
+      <Box className={classes.success}>
+        <Box className={classes.successProducts}>
+          {products.map((product) => (
+            <Box key={product.id}>
+              <BestSellersView data={product} />
+            </Box>
+          ))}
+        </Box>
+      </Box>
+    );
+  }
 
   if (error) {
     return (
@@ -34,23 +45,6 @@ const GetBestProducts = () => {
   }
 
   if (isPending) return <LoadingSvg className={classes.pending}></LoadingSvg>;
-
-  if (data) {
-    // let bestOnes = selectedOnes();
-    return (
-      <Box className={classes.success}>
-        <Box className={classes.successProducts}>
-          {data
-            .filter((id) => id.includes("6", "8", "16"))
-            .map((product) => (
-              <Box key={product.id}>
-                <BestSellersView data={product} />
-              </Box>
-            ))}
-        </Box>
-      </Box>
-    );
-  }
 };
 
 export default GetBestProducts;

@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSvg from "../assets/svgs/LoadingSvg";
 import { Box, Typography } from "@mui/material";
 import useStyles from "./service.style";
-import ProductCard from "../components/productCard/ProductCard";
 import Pagination from "../components/pagination/Pagination";
 import { useState } from "react";
+import ProductCard from "../components/productCards/ProductCard";
 
 const getData = async () => {
   const response = await axios.get("https://fakestoreapi.com/products?limit=4");

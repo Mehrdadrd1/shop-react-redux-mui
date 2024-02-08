@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSvg from "../assets/svgs/LoadingSvg";
 import { Box, Typography } from "@mui/material";
 import useStyles from "./service.style";
-import BestSellersView from "../components/bestSellersView/BestSellersView";
+import ProductCard from "../components/productCards/ProductCard";
 
 const getData = async () => {
   const response = await axios.get("https://fakestoreapi.com/products");
@@ -28,7 +28,7 @@ const GetBestProducts = () => {
         <Box className={classes.successProducts}>
           {products.map((product) => (
             <Box key={product.id}>
-              <BestSellersView data={product} />
+              <ProductCard data={product} />
             </Box>
           ))}
         </Box>

@@ -1,3 +1,6 @@
+import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/redux/sliceCart";
 import {
   Box,
   Typography,
@@ -8,10 +11,10 @@ import {
   CardActionArea,
   CardActions,
 } from "@mui/material";
-import React from "react";
-import useStyles from "../productCard/productsCard.style";
+import useStyles from "./card.style";
 
 const ProductCard = (props) => {
+  const dispatch = useDispatch();
   const { classes } = useStyles();
   const product = props.data;
   return (
@@ -49,7 +52,11 @@ const ProductCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.btnArea}>
-        <Button variant="contained" color="secondary">
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => dispatch(addToCart(product))}
+        >
           Add To Card
         </Button>
       </CardActions>

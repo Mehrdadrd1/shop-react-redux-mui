@@ -22,6 +22,18 @@ const useStyles = makeStyles()((theme) => {
       alignItems: "center",
       paddingTop: "50px",
     },
+    shoppingCart: {
+      backgroundColor: theme.palette.primary.light,
+      position: "relative",
+      width: "45px",
+      height: "45px",
+      borderRadius: "50%",
+      bottom: "80px",
+      right: "20px",
+      zIndex: 1,
+      boxShadow: 0,
+    },
+    cartIcon: { width: "100%", textAlign: "center" },
   };
 });
 

@@ -3,7 +3,7 @@ import router from "./components/router/Router";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@emotion/react";
-import store from "./features/store";
+import { store } from "./features/redux/store";
 import theme from "./theme/Theme";
 import { CssBaseline } from "@mui/material";
 import "./style.css";

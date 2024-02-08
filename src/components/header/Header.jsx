@@ -15,10 +15,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-
-const drawerWidth = 240;
+import useStyles from "./header.style";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
+  const drawerWidth = 240;
+  const cart = useSelector((state) => state.cart);
+  const { classes } = useStyles();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -55,10 +59,18 @@ const Header = (props) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const getTotalQuantity = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" className={classes.appBar}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -69,14 +81,7 @@ const Header = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            E Commerce Website Project
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: { xs: "none", sm: "block" }, width: "100%" }}>
             <Button component={Link} to={"/"} variant="text" color="text">
               Home
             </Button>
@@ -96,6 +101,34 @@ const Header = (props) => {
             >
               AboutME
             </Button>
+            <Button component={Link} to={"/cart"} variant="text" color="text">
+              <ShoppingBagIcon />
+              <Typography
+                variant="caption"
+                color="initial"
+                className={classes.quantity}
+              >
+                {getTotalQuantity() || 0}
+              </Typography>
+            </Button>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignSelf: "center",
+              justifySelf: "flex-end",
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block", width: "250px" },
+              }}
+            >
+              E Commerce Website Project
+            </Typography>
           </Box>
         </Toolbar>
       </AppBar>

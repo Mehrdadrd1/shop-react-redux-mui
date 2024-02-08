@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Box className={classes.root} sx={{ boxShadow: 5 }}>
+      <Box className={classes.home} sx={{ boxShadow: 5 }}>
         <GetBestProducts />
       </Box>
     </Layout>

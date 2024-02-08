@@ -2,18 +2,12 @@ import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()((theme) => {
   return {
-    root: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-around",
-      alignItems: "center",
+    home: {
       backgroundColor: theme.palette.paper.main,
       color: theme.palette.primary.dark,
-      minWidth: "71vw",
-      maxWidth: "80vw",
-      minHeight: "75vh",
-      padding: "5px",
-      borderRadius: "15px",
+      width: "100%",
+      padding: "25px",
+      borderRadius: "12px",
     },
   };
 });

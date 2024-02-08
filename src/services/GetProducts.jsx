@@ -30,7 +30,7 @@ const GetProducts = () => {
     );
   }
 
-  if (isPending) return <LoadingSvg className={classes.pending}></LoadingSvg>;
+  if (isPending) return <LoadingSvg className={classes.pending} />;
 
   return (
     <Box className={classes.success}>

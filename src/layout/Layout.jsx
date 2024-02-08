@@ -1,41 +1,33 @@
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import Footer from "../components/footer/Footer";
 import useStyles from "./layout.style";
 import Header from "../components/header/Header";
-import { ShoppingCart } from "@mui/icons-material";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import Paper from "@mui/material/Paper";
+import styled from "@emotion/styled";
 
 const Layout = ({ children }) => {
-  const navigate = useNavigate();
   const { classes } = useStyles();
-  const cart = useSelector((state) => state.cart);
-
-  const getTotalQuantity = () => {
-    let total = 0;
-    cart.forEach((item) => {
-      total += item.quantity;
-    });
-    return total;
-  };
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
 
   return (
     <Box className={classes.root}>
-      <Header />
-      <Box className={classes.middle}>
-        <Card
-          component={Link}
-          onClick={() => navigate("/cart")}
-          className={classes.shoppingCart}
-        >
-          <ShoppingCart className={classes.cartIcon} />
-          <Typography variant="caption" color="initial">
-            {getTotalQuantity() || 0}
-          </Typography>
-        </Card>
-        {children}
-      </Box>
-      <Footer />
+      <Grid container spacing={2} className={classes.Grid}>
+        <Grid item xl={12}>
+          <Header />
+        </Grid>
+        <Grid item xl={12}>
+          {children}
+        </Grid>
+        <Grid item xl={12}>
+          <Footer />
+        </Grid>
+      </Grid>
     </Box>
   );
 };

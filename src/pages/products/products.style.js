@@ -10,11 +10,9 @@ const useStyles = makeStyles()((theme) => {
       alignItems: "center",
       backgroundColor: theme.palette.paper.main,
       color: theme.palette.primary.dark,
-      // minWidth: "72vw",
-      // maxWidth: "86vw",
-      // minHeight: "75vh",
+
       margin: "10px",
-      padding: "5px",
+      padding: "15px",
       borderRadius: "15px",
     },
   };

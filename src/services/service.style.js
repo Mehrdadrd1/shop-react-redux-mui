@@ -23,7 +23,8 @@ const useStyles = makeStyles()((theme) => {
       flexWrap: "wrap",
     },
     pending: {
-      color: theme.palette.text.primary,
+      color: theme.palette.primary.dark,
+      fontSize: 40,
     },
   };
 });

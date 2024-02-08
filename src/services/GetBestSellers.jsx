@@ -44,7 +44,7 @@ const GetBestProducts = () => {
     );
   }
 
-  if (isPending) return <LoadingSvg className={classes.pending}></LoadingSvg>;
+  if (isPending) return <LoadingSvg className={classes.pending} />;
 };
 
 export default GetBestProducts;

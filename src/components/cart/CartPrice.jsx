@@ -1,9 +1,11 @@
 import React from "react";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
+import useStyles from "./cart.Style";
 
 const CartPrice = () => {
   const cart = useSelector((state) => state.cart);
+  const { classes } = useStyles();
 
   const getTotal = () => {
     let totalQuantity = 0;
@@ -16,7 +18,7 @@ const CartPrice = () => {
   };
 
   return (
-    <Card className="total">
+    <Card className={classes.priceCard}>
       <CardContent>
         <Typography
           variant="h6"

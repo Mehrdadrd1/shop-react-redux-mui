@@ -10,9 +10,8 @@ const useStyles = makeStyles()((theme) => {
       alignItems: "center",
       backgroundColor: theme.palette.paper.main,
       color: theme.palette.primary.dark,
-
-      margin: "10px",
-      padding: "15px",
+      margin: "5px",
+      padding: "10px",
       borderRadius: "15px",
     },
   };

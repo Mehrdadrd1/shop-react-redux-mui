@@ -11,9 +11,11 @@ import {
   CardActionArea,
   CardActions,
 } from "@mui/material";
-import useStyles from "./card.style";
+import useStyles from "./cards.style";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = (props) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { classes } = useStyles();
   const product = props.data;
@@ -58,6 +60,13 @@ const ProductCard = (props) => {
           onClick={() => dispatch(addToCart(product))}
         >
           Add To Card
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => navigate(`/productDetails/${product.id}`)}
+        >
+          Details
         </Button>
       </CardActions>
     </Card>

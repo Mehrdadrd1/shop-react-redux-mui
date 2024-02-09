@@ -14,14 +14,23 @@ import {
   CardActions,
   Button,
 } from "@mui/material";
+import useStyles from "./cart.Style";
 
 const CartItem = ({ id, image, title, price, quantity = 0 }) => {
   const dispatch = useDispatch();
+  const { classes } = useStyles();
 
   return (
-    <Card>
-      <CardContent>
-        <CardMedia component="img" src={image} alt={title} className={image} />
+    <Card className={classes.itemCard}>
+      <CardContent className={classes.content}>
+        <CardMedia
+          component="img"
+          src={image}
+          alt={title}
+          className={classes.image}
+        />
+      </CardContent>
+      <Box>
         <Typography
           variant="h6"
           color="initial"
@@ -44,8 +53,8 @@ const CartItem = ({ id, image, title, price, quantity = 0 }) => {
           <Box sx={{ marginRight: "5px" }}>Price:</Box>
           <Box>${price}</Box>
         </Typography>
-      </CardContent>
-      <CardActions>
+      </Box>
+      <CardActions className={classes.btn}>
         <Button
           variant="contained"
           color="secondary"

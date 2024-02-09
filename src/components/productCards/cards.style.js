@@ -25,9 +25,9 @@ const useStyles = makeStyles()((theme) => {
     btnArea: {
       width: "100%",
       display: "flex",
-      flexDirection: "column",
+      flexDirection: "row",
       alignItems: "center",
-      justifyContent: "flex-end",
+      justifyContent: "center",
     },
   };
 });

@@ -1,14 +1,17 @@
-import { Card, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Layout from "../../layout/Layout";
 import { useSelector } from "react-redux";
 import CartPrice from "../../components/cart/CartPrice";
 import CartItem from "../../components/cart/CartItems";
+import useStyle from "./cartPage.Style";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const { classes } = useStyle();
+
   return (
     <Layout>
-      <Card>
+      <Box className={classes.shoppingCart}>
         <Typography
           variant="h3"
           color="initial"
@@ -17,7 +20,6 @@ const Cart = () => {
         >
           Shopping Cart
         </Typography>
-        <CartPrice />
         {cart?.map((item) => (
           <CartItem
             key={item.id}
@@ -28,7 +30,8 @@ const Cart = () => {
             quantity={item.quantity}
           />
         ))}
-      </Card>
+        <CartPrice />
+      </Box>
     </Layout>
   );
 };

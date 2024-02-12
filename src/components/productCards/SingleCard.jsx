@@ -18,23 +18,41 @@ const SingleCard = (props) => {
   const { classes } = useStyles();
   const product = props.data;
   return (
-    <Card className={classes.mainCard}>
-      <CardActionArea>
+    <Card className={classes.singleCard}>
+      <CardActionArea className={classes.singleCardAction}>
         <CardMedia
           component="img"
           src={product.image}
           alt={product.title}
-          className={classes.image}
+          className={classes.singleCardImage}
         />
-        <CardContent sx={{ height: "130px" }}>
-          <Typography
-            variant="h6"
-            color="initial"
-            align="center"
-            sx={{ height: "80px" }}
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-around",
+            height: "400px",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              height: "200px",
+              flexDirection: "column",
+              justifyContent: "space-around",
+            }}
           >
-            {product.title}
-          </Typography>
+            <Typography variant="h6" color="initial" align="center">
+              {product.title}
+            </Typography>
+            <Typography variant="h6" color="initial" align="center">
+              Category: {product.category}
+            </Typography>
+            <Typography variant="body1" color="initial">
+              {product.description}
+            </Typography>
+          </Box>
           <Typography
             variant="body1"
             color="Highlight"
@@ -51,15 +69,15 @@ const SingleCard = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions className={classes.btnArea}>
+      <CardActions className={classes.singleCardBtn}>
         <Button
           variant="contained"
-          color="secondary"
+          color="primary"
           onClick={() => dispatch(addToCart(product))}
         >
           Add To Card
         </Button>
-        <Button variant="contained" color="secondary">
+        <Button variant="contained" color="primary">
           Details
         </Button>
       </CardActions>

@@ -68,7 +68,7 @@ const Header = (props) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", width: "100%" }}>
       <CssBaseline />
       <AppBar component="nav" className={classes.appBar}>
         <Toolbar>

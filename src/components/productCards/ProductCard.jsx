@@ -12,7 +12,7 @@ import {
   CardActions,
 } from "@mui/material";
 import useStyles from "./cards.style";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const ProductCard = (props) => {
   const navigate = useNavigate();
@@ -22,36 +22,38 @@ const ProductCard = (props) => {
   return (
     <Card className={classes.mainCard}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          src={product.image}
-          alt={product.title}
-          className={classes.image}
-        />
-        <CardContent sx={{ height: "130px" }}>
-          <Typography
-            variant="h6"
-            color="initial"
-            align="center"
-            sx={{ height: "80px" }}
-          >
-            {product.title}
-          </Typography>
-          <Typography
-            variant="body1"
-            color="Highlight"
-            align="center"
-            fontWeight="bold"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <Box sx={{ marginRight: "5px" }}>Price:</Box>
-            <Box>${product.price}</Box>
-          </Typography>
-        </CardContent>
+        <Link to={`/productDetails/${product.id}`} className={classes.Link}>
+          <CardMedia
+            component="img"
+            src={product.image}
+            alt={product.title}
+            className={classes.image}
+          />
+          <CardContent sx={{ height: "130px" }}>
+            <Typography
+              variant="h6"
+              color="initial"
+              align="center"
+              sx={{ height: "80px" }}
+            >
+              {product.title}
+            </Typography>
+            <Typography
+              variant="body1"
+              color="Highlight"
+              align="center"
+              fontWeight="bold"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Box sx={{ marginRight: "5px" }}>Price:</Box>
+              <Box>${product.price}</Box>
+            </Typography>
+          </CardContent>
+        </Link>
       </CardActionArea>
       <CardActions className={classes.btnArea}>
         <Button

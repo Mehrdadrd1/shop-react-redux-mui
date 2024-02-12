@@ -104,9 +104,15 @@ const Header = (props) => {
             <Button component={Link} to={"/cart"} variant="text" color="text">
               <ShoppingBagIcon />
               <Typography
-                variant="caption"
-                color="initial"
+                variant="text"
+                color="text"
                 className={classes.quantity}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  paddingLeft: "5px",
+                }}
               >
                 {getTotalQuantity() || 0}
               </Typography>

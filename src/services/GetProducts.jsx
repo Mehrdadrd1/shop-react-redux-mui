@@ -5,11 +5,13 @@ import { Box, Typography } from "@mui/material";
 import useStyles from "./service.style";
 import ProductCard from "../components/productCards/ProductCard";
 import ProductsPagination from "../components/paginations/ProductsPagination";
+import { useState } from "react";
 
 const GetProducts = () => {
   const url = "https://fakestoreapi.com/products";
   // use this in the end of url to limit api items => "?limit=5"
   const { classes } = useStyles();
+  const [products, setProducts] = useState([]);
 
   const getData = async () => {
     const response = await axios.get(url);
@@ -35,18 +37,17 @@ const GetProducts = () => {
     return (
       <Box className={classes.success}>
         <Box className={classes.successProducts}>
-          {data.map((product) => (
+          {products.map((product) => (
             <Box key={product.id}>
               <ProductCard data={product} />
             </Box>
           ))}
         </Box>
         <Box>
-          <ProductsPagination products={data} />
+          <ProductsPagination setProducts={(p) => setProducts(p)} />
         </Box>
       </Box>
     );
   }
 };
-
 export default GetProducts;
